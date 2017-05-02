@@ -1,0 +1,8 @@
+md-sidenav {
+    width: 200px;
+}
+
+md-toolbar {
+    background-color: rgb(96, 124, 139);
+    color: white;
+}

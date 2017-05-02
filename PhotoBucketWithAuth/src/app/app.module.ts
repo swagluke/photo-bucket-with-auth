@@ -12,10 +12,16 @@ import { AngularFireModule } from 'angularfire2';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MaterialModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MainComponent } from './+main/main.component';
+import { SigninComponent } from './+signin/signin.component';
+import { AuthService } from './services/auth.service';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainComponent,
+    SigninComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [],
+  providers: [AuthService, AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

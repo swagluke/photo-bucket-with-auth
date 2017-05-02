@@ -1,4 +1,18 @@
-<h1>
-  {{title}}
-</h1>
-<router-outlet></router-outlet>
+<md-toolbar>
+  <span>Photo Bucket</span>
+  <span fxFlex></span>
+
+  <button *ngIf="authService.isSignedInStream | async" md-icon-button [mdMenuTriggerFor]="signoutMenu">
+    <md-icon>more_vert</md-icon>
+  </button>
+
+  <md-menu [overlapTrigger]="false" #signoutMenu="mdMenu">
+    <button md-menu-item (click)="authService.signOut()">Sign out</button>
+  </md-menu>
+</md-toolbar>
+
+<div fxLayoutAlign="center center">
+  <div class="container" fxFlex fxFlex.md="960px" fxFlex.gt-md="1100px">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+$horz-card-padding: 30px;
+md-card {
+  margin: 30px 10px;
+  padding: 20px 40px;
+
+  #rosefire-button {
+    margin-top: 20px;
+    font-size: 1em;
+    color: white;
+    background-color: #800000;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 191px;
+    height: 46px;
+    border: none;
+  }
+  
+  #google-button {
+    background-color: transparent;
+    background-image: url("/assets/images/google_signin_dark.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 191px;
+    height: 46px;
+    border: none;
+    &:active {
+      background-image: url("/assests/images/google_signin_dark_pressed.png");
+    }
+  }
+}

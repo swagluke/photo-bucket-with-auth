@@ -12,5 +12,6 @@ export const environment = {
     projectId: "photo-bucket-with-auth",
     storageBucket: "photo-bucket-with-auth.appspot.com",
     messagingSenderId: "587136566875"
-  }
+  },
+  rosefireRegistryToken: "fbbe4f1d-7eba-4249-b67a-1401d5b6f053"
 };
