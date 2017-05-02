@@ -1,3 +1,4 @@
+import { AuthorService } from './services/author.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
@@ -16,13 +17,18 @@ import { MainComponent } from './+main/main.component';
 import { SigninComponent } from './+signin/signin.component';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
+import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    SigninComponent
+    SigninComponent,
+    PhotoDetailComponent,
+    PhotoDialogComponent,
   ],
+  entryComponents: [PhotoDialogComponent],
   imports: [
     BrowserModule,
     FormsModule,
@@ -34,7 +40,7 @@ import { AuthGuardService } from './services/auth-guard.service';
     AngularFireModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService,AuthorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

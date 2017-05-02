@@ -1,3 +1,31 @@
-<p>
-  main works!
-</p>
+<md-tab-group>
+  <md-tab label="All Photos">
+    <md-grid-list [cols]="numberColumns" rowHeight="300px">
+      <md-grid-tile *ngFor="let photo of photos | async">
+        <a routerLink="/photo-detail" style="text-decoration: none;">
+          <md-card>
+            <md-card-title>{{ photo?.title }}</md-card-title>
+            <img [src]="photo?.url" md-card-image>
+          </md-card>
+        </a>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+
+  <md-tab label="My Photos">
+    <md-grid-list [cols]="numberColumns" rowHeight="300px">
+      <md-grid-tile *ngFor="let myphoto of myPhotos | async">
+        <a routerLink="/photo-detail" style="text-decoration: none;">
+          <md-card>
+            <md-card-title>{{ myphoto?.title }}</md-card-title>
+            <img [src]="myphoto?.url" md-card-image>
+          </md-card>
+        </a>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+</md-tab-group>
+
+<button type="button" md-fab (click)="showAddPhotoDialog()">
+  <md-icon>add</md-icon>
+</button>

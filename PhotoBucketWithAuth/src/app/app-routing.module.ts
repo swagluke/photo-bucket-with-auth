@@ -1,3 +1,4 @@
+import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './+main/main.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full', canActivate: [AuthGuardService] },
   { path: 'signin', component: SigninComponent },
   { path: '**', redirectTo: '' },
+  { path: 'photo-detail', component: PhotoDetailComponent}
 ];
 
 @NgModule({
