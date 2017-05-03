@@ -2,6 +2,10 @@
   <span>Photo Bucket</span>
   <span fxFlex></span>
 
+  <span *ngIf="(authService.currentUserUid) as name">
+    {{ name }}
+    </span>
+
   <button *ngIf="authService.isSignedInStream | async" md-icon-button [mdMenuTriggerFor]="signoutMenu">
     <md-icon>more_vert</md-icon>
   </button>
