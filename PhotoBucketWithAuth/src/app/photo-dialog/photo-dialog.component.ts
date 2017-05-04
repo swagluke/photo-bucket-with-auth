@@ -1,25 +1,26 @@
-import { Photo } from './../models/photo.model';
+import { Photo } from '../models/photo.model';
 import { Component, OnInit } from '@angular/core';
 import { MdDialogRef } from "@angular/material";
 import * as firebase from 'firebase';
+
 interface DialogData {
-  firebasePath: string;
+  userUid: string;
   photo?: Photo;
 }
 
 @Component({
   selector: 'app-photo-dialog',
   templateUrl: './photo-dialog.component.html',
-  styleUrls: ['./photo-dialog.component.css']
+  styleUrls: ['./photo-dialog.component.scss']
 })
 export class PhotoDialogComponent implements OnInit {
   formPhoto: Photo;
-  private firebasePath: string;
+  private userUid: string;
   private photoKey: string;
 
   constructor(private dialogRef: MdDialogRef<PhotoDialogComponent>) {
     var data: DialogData = this.dialogRef._containerInstance.dialogConfig.data;
-    this.firebasePath = data.firebasePath;
+    this.userUid = data.userUid;
     console.log("Received the data", data);
     this.formPhoto = new Photo();
     if (data.photo) {
@@ -36,13 +37,11 @@ export class PhotoDialogComponent implements OnInit {
 
   onSubmit() {
     try {
-      if (this.photoKey) {
-        firebase.database().ref()
-          .child(this.firebasePath)
-          .child(this.photoKey)
-          .set(this.formPhoto);
+      if(this.photoKey) {
+        firebase.database().ref().child('/photo').child(this.photoKey).set(this.formPhoto);
       } else {
-        firebase.database().ref().child(this.firebasePath).push(this.formPhoto);
+        this.formPhoto.user = this.userUid;
+        firebase.database().ref().child('/photo').push(this.formPhoto);
       }
       this.dialogRef.close();
     } catch (e) {

@@ -1,0 +1,16 @@
+md-card {
+  padding: 40px;
+  text-align: center;
+  
+  img {
+    margin-bottom: 0;
+    height: 180px;
+    width: auto;
+    cursor: pointer;
+  }
+  
+  md-card-title {
+    text-align: center;
+    font-size: 14px;
+  }
+}

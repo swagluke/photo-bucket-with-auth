@@ -19,6 +19,7 @@ import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { PhotoDetailComponent } from './photo-detail/photo-detail.component';
 import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
+import { PhotoCardComponent } from './photo-card/photo-card.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { PhotoDialogComponent } from './photo-dialog/photo-dialog.component';
     SigninComponent,
     PhotoDetailComponent,
     PhotoDialogComponent,
+    PhotoCardComponent,
   ],
   entryComponents: [PhotoDialogComponent],
   imports: [

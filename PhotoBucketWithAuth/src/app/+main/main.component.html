@@ -2,11 +2,8 @@
   <md-tab label="All Photos">
     <md-grid-list [cols]="numberColumns" rowHeight="300px">
       <md-grid-tile *ngFor="let photo of photos | async">
-        <a routerLink="/photo-detail" style="text-decoration: none;">
-          <md-card>
-            <md-card-title>{{ photo?.title }}</md-card-title>
-            <img [src]="photo?.url" md-card-image>
-          </md-card>
+        <a fxFlex [routerLink]="['/photo-detail', photo.$key]" routerLinkActive="active" style="text-decoration: none;">
+          <photo-card fxFlex [photo]="photo" [firebasePath]="photo.uid" [myCard]=false></photo-card>
         </a>
       </md-grid-tile>
     </md-grid-list>
@@ -15,11 +12,8 @@
   <md-tab label="My Photos">
     <md-grid-list [cols]="numberColumns" rowHeight="300px">
       <md-grid-tile *ngFor="let myphoto of myPhotos | async">
-        <a routerLink="/photo-detail" style="text-decoration: none;">
-          <md-card>
-            <md-card-title>{{ myphoto?.title }}</md-card-title>
-            <img [src]="myphoto?.url" md-card-image>
-          </md-card>
+        <a fxFlex routerLink="/photo-detail" routerLinkActive="active" style="text-decoration: none;">
+          <photo-card fxFlex [photo]="myphoto" [firebasePath]="myphoto.uid" [myCard]=true></photo-card>
         </a>
       </md-grid-tile>
     </md-grid-list>

@@ -1,13 +1,19 @@
 md-card {
-    margin: 10px;
-    md-card-title {
-        text-align: center;
-        font-size: 18px;
-    }
+  margin: 10px;
+  md-card-title {
+    text-align: center;
+    font-size: 18px;
+  }
+  img {
+    margin-bottom: 0;
+    height: 190px;
+    width: auto;
+    cursor: pointer;
+  }
 }
 
 button[md-fab] {
-    position: fixed !important;
-    right: 20px;
-    bottom: 20px;
+  position: fixed !important;
+  right: 20px;
+  bottom: 20px;
 }

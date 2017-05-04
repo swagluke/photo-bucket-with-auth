@@ -16,7 +16,8 @@ import { Routes, RouterModule } from '@angular/router';
 export class MainComponent implements OnInit {
   photos: FirebaseListObservable<Photo[]>;
   myPhotos: FirebaseListObservable<Photo[]>;
-
+  userUid: string;
+  
   constructor(af: AngularFire, auth: AuthService, private dialog: MdDialog) {
     this.photos = af.database.list("/photo");
     this.myPhotos = af.database.list("/photo", {
@@ -25,6 +26,7 @@ export class MainComponent implements OnInit {
         equalTo: auth.currentUserUid,
       }
     });
+    this.userUid = auth.currentUserUid;
     console.log(this.myPhotos);
   }
 
@@ -46,7 +48,7 @@ export class MainComponent implements OnInit {
   showAddPhotoDialog() {
     console.log("TODO: Show dialog");
      var dialogConfig = new MdDialogConfig();
-     //dialogConfig.data = { firebasePath: //FirebasePath };
+     dialogConfig.data = { userUid: this.userUid };
      this.dialog.open(PhotoDialogComponent, dialogConfig);
   }
 

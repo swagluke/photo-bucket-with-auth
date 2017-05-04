@@ -1,13 +1,11 @@
-<md-card fxFlex>
+<md-card>
   <md-card-header fxLayoutAlign="center center">
     <md-card-title>
-      {{photo?.caption}}
+      {{photo.caption}}
     </md-card-title>
   </md-card-header>
-  <img md-card-image [src]="photo?.url">
-  <md-card-actions>
-      <button class="back-btn" md-icon-button type="button" (click)="back()">< Back</button>
-      <span fxFlex></span>
+  <img md-card-image [src]="photo.url">
+  <md-card-actions *ngIf="myCard" fxLayoutAlign="end center">
       <button class="edit-btn" md-icon-button type="button" (click)="edit()"><md-icon>edit</md-icon></button>
       <button class="remove-btn" md-icon-button type="button" (click)="remove()"><md-icon>delete</md-icon></button>
   </md-card-actions>

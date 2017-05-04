@@ -1,5 +1,5 @@
 <h1 md-dialog-title>{{photoKey ? 'Edit this photo' : 'Add a new photo'}}</h1>
-<form (ngSubmit)="onSubmit()" #passwordForm="ngForm">
+<form (ngSubmit)="onSubmit()" #photoForm="ngForm">
   <md-dialog-content fxFlex fxLayout="column" fxLayoutAlign="none center">
 
     <md-input-container>
@@ -14,6 +14,6 @@
 
   <md-dialog-actions fxLayoutAlign="end center">
     <button type="button" md-button md-dialog-close>Cancel</button>
-    <button type="submit" md-button [disabled]="!passwordForm.form.valid">Save</button>
+    <button type="submit" md-button [disabled]="!photoForm.form.valid">Save</button>
   </md-dialog-actions>
 </form>
