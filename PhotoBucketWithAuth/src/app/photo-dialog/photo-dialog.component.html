@@ -5,6 +5,11 @@
     <md-input-container>
       <input mdInput placeholder="Url" type="text" name="Url" [(ngModel)]="formPhoto.url">
     </md-input-container>
+    <div fxLayout="row">
+      <span fxFlex id="select">or</span>
+      <button id="upload" md-button type="button" (click)="triggerInput(photoInput)">Upload an Image</button><br>
+      <input #photoInput style="display: none;" type="file" (change)="photoSelected($event)"><br>
+    </div>
 
     <md-input-container>
       <input required mdInput placeholder="Caption" type="text" name="Caption" [(ngModel)]="formPhoto.caption">

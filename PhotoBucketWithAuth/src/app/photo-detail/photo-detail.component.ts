@@ -27,6 +27,7 @@ export class PhotoDetailComponent implements OnInit {
     private _location: Location) {
     this.routerSubscription = this.route.params.subscribe((params: Params) => {
       this.uid = params['uid'];
+      console.log(`The param is ${this.uid}.`);
     });
 
     this.af.database.object("/photo/" + this.uid).subscribe(item => {

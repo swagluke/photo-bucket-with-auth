@@ -37,7 +37,7 @@ export class PhotoDialogComponent implements OnInit {
 
   onSubmit() {
     try {
-      if(this.photoKey) {
+      if (this.photoKey) {
         firebase.database().ref().child('/photo').child(this.photoKey).set(this.formPhoto);
       } else {
         this.formPhoto.user = this.userUid;
@@ -47,5 +47,21 @@ export class PhotoDialogComponent implements OnInit {
     } catch (e) {
       console.log("Error while submitting form", e);
     }
+  }
+  photoSelected(event: any) {
+    const file: File = event.target.files[0];
+    const metadata = { "content-type": file.type };
+    const storageRef: firebase.storage.Reference = firebase.storage().ref().child("photos").child(file.name);
+    const uploadTask: firebase.storage.UploadTask = storageRef.put(file, metadata);
+    uploadTask.then((uploadSnapShot: firebase.storage.UploadTaskSnapshot) => {
+      const downloadUrl = uploadSnapShot.downloadURL;
+      this.formPhoto.url = downloadUrl;
+      // firebase.database().ref().child(`/photos/${photoName}`).set(downloadUrl);
+    })
+  }
+
+
+  triggerInput(inputEl) {
+    inputEl.click();
   }
 }
