@@ -8,8 +8,8 @@ import { AuthGuardService } from './services/auth-guard.service';
 const routes: Routes = [
   { path: '', component: MainComponent, pathMatch: 'full', canActivate: [AuthGuardService] },
   { path: 'signin', component: SigninComponent },
-  { path: '**', redirectTo: '' },
   { path: 'photo-detail/:uid', component: PhotoDetailComponent},
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({
