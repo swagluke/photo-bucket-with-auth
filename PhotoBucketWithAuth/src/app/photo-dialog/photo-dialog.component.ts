@@ -15,8 +15,8 @@ interface DialogData {
 })
 export class PhotoDialogComponent implements OnInit {
   formPhoto: Photo;
-  private userUid: string;
-  private photoKey: string;
+  public userUid: string;
+  public photoKey: string;
 
   constructor(private dialogRef: MdDialogRef<PhotoDialogComponent>) {
     var data: DialogData = this.dialogRef._containerInstance.dialogConfig.data;

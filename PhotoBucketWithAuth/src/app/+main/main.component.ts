@@ -45,7 +45,6 @@ export class MainComponent implements OnInit {
   }
 
   showAddPhotoDialog() {
-    console.log("TODO: Show dialog");
      var dialogConfig = new MdDialogConfig();
      dialogConfig.data = { userUid: this.userUid };
      this.dialog.open(PhotoDialogComponent, dialogConfig);
