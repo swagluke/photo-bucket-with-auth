@@ -27,7 +27,6 @@ export class MainComponent implements OnInit {
       }
     });
     this.userUid = auth.currentUserUid;
-    console.log(this.myPhotos);
   }
 
   ngOnInit() {

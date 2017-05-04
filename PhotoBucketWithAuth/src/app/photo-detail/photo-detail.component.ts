@@ -7,6 +7,8 @@ import { MdSnackBar, MdDialog, MdDialogConfig } from "@angular/material";
 import { AngularFire, FirebaseObjectObservable } from "angularfire2";
 import { AuthService } from './../services/auth.service';
 import { Location } from '@angular/common';
+import * as firebase from 'firebase';
+
 @Component({
   selector: 'app-photo-detail',
   templateUrl: './photo-detail.component.html',
@@ -44,12 +46,18 @@ export class PhotoDetailComponent implements OnInit {
 
   edit() {
     var dialogConfig = new MdDialogConfig();
-    dialogConfig.data = { userKey: this.auth.currentUserUid, photo: this.photo };
+    dialogConfig.data = { userUid: this.auth.currentUserUid, photo: this.photo };
     this.dialog.open(PhotoDialogComponent, dialogConfig);
   }
 
   back() {
     this._location.back();
+  }
+
+  remove() {
+    firebase.database().ref().child('/photo').child(this.photo.$key).remove().then((data) => {
+      this._location.back();
+    });
   }
 
   ngOnInit() {

@@ -1,5 +1,6 @@
 import { Author } from './author.model';
 import { FirebaseFlatSnapshot } from './firebase-flat-snapshot.model';
+
 export class Photo extends FirebaseFlatSnapshot {
     public user: string;
     public url: string;
